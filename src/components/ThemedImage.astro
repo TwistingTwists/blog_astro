@@ -1,0 +1,83 @@
+---
+interface Props {
+	src: string;
+	darkSrc?: string;
+	alt: string;
+	name: string;
+	age: number;
+}
+
+let { src, alt, darkSrc } = Astro.props;
+
+let images;
+let absoluteImageSrc = src;
+let absoluteDarkImageSrc = darkSrc;
+
+// NOTE: when searching the image sources, we need to absolute path, but when rendering the image, we need to remove the "/public" prefix
+if (!absoluteImageSrc.startsWith("/public")) {
+	absoluteImageSrc = `/public${src}`;
+	absoluteDarkImageSrc = darkSrc ? `/public${darkSrc}` : undefined;
+	// this cannot be a string literal because it needs to be pre-compiled
+	images = import.meta.glob("/public/attachments/*.{jpeg,jpg,png,svg,gif}");
+}
+
+if (!images?.[absoluteImageSrc]) {
+	throw new Error(`"${absoluteImageSrc}" does not exist in glob`);
+}
+
+// if darkSrc is not provided, use the src as the darkSrc
+if (darkSrc && absoluteDarkImageSrc && !images[absoluteDarkImageSrc]) {
+	darkSrc = src;
+}
+
+// @ts-ignore
+const { border, borderDashed, ...themedImageProps } = Astro.props;
+---
+
+<!-- pass all props to img -->
+<img
+	id="themed-image"
+	{...themedImageProps}
+	class:list={[
+		{
+			"border-2 border-indigo-300 dark:border-ghostindigo-600": border,
+			"border-2 border-dashed border-indigo-300 dark:border-ghostindigo-600": borderDashed,
+		},
+	]}
+	src={src}
+	alt={alt}
+	data-dark-src={darkSrc}
+	data-src={src}
+/>
+
+<script is:inline data-astro-rerun>
+	function updateImageSrc(event) {
+		let isDarkMode = document.documentElement.classList.contains("dark");
+		if (event && event.detail?.theme === "dark") {
+			isDarkMode = true;
+		}
+		const images = document.querySelectorAll("#themed-image");
+
+		for (const img of images) {
+			if (img && img.src) {
+				let attribute = isDarkMode
+					? img.getAttribute("data-dark-src")
+					: img.getAttribute("data-src");
+				img.src = attribute ?? "";
+
+				img.onload = () => {
+					img.style.opacity = 1;
+				};
+			}
+		}
+	}
+
+	// load the correct image based on the user's theme
+	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateImageSrc);
+
+	// listen for theme changes
+	document.addEventListener("theme-change", updateImageSrc);
+
+	// works with view transitions as well, whereas DOMContentLoaded does not
+	document.addEventListener("astro:page-load", updateImageSrc);
+</script>

@@ -1,0 +1,195 @@
+---
+title: Astro-nomical switch - hashnode → astro
+description: Building this website with Astro and Tailwind, moving away from hashnode and setting up Obsidian Git Sync for publishing blogs from anywhere.
+draft: true
+tags:
+  - astro
+  - blog
+  - obsidian
+  - pagespeed
+  - hashnode
+publishDate: Dec 1 2020
+---
+
+import { Image } from "astro:assets";
+import hashnodeGithubBackup from "./attachments/hashnode-github-backup.png";
+import obsidianGitiOSScreenshot from "./attachments/obsidian-git-ios-screenshot.png";
+import hashnodePageSpeedResult from "./attachments/hashnode-pagespeed-result.png";
+import hashnodePageSpeedResultOpportunities from "./attachments/hashnode-pagespeed-result-opportunities.png";
+import blogPageSpeedResult from "./attachments/blog-pagespeed-result.png";
+import Tweet from "astro-tweet";
+
+
+I've been using [hashnode.dev](https://hashnode.dev) for the last couple of years as my primary blogging platform. It has served me well, but I think it's time for a change.
+
+## Why I'm moving away from hashnode?
+
+Don't get me wrong, hashnode is great to get started and helps build a habit of writing. But over time I've realized that I don't really write a lot, but when I do - I want it to look the way I want. Let me explain.
+
+### Custom CSS is difficult to maintain
+
+Hashnode had custom CSS for a couple of years, and I've raved about in the past.
+
+<div class="tweet-embed">
+	<Tweet id="1341662028843241474" />
+</div>
+
+But over time, as it happens with custom stylesheets - _things broke_. The theming was inconsistent with my site at [shrirambalaji.com](https://shrirambalaji.com) and it was hard to maintain. In hindsight, I should have realized that adding custom stylesheets without having any form of guarantee of it not breaking, would eventually turn out to be an issue.
+
+I remember spending a couple of days to get it to match my theme when I first set it up, but that was mainly because I couldn't find extensive theming options on hashnode, and felt it to be limiting. (whether or not I write often - atleast the site should look consistent 😅)
+
+Another slightly tangential issue was with code highlighting. I didn't particularly like the highlighting theme, and also the code theme didn't switch when going from Dark to Light.
+
+### Lack of control on initial load performance
+
+These are screenshots from running pagespeed insights on my [hashnode blog](https://pagespeed.web.dev/analysis/https-shriram-balaji-hashnode-dev/tdlaljm956?form_factor=mobile)
+
+<Image
+	src={hashnodePageSpeedResult}
+	alt="Screenshot of Hashnode PageSpeed Result"
+	width={800}
+	quality="max"
+/>
+
+<Image
+	src={hashnodePageSpeedResultOpportunities}
+	alt="Screenshot of Hashnode PageSpeed Result opportunities"
+	width={800}
+/>
+
+Around `760ms` was being spent on just fonts, and I couldn't do anything about it 🙁
+
+> This isn't a post to dunk on hashnode - I know that it's a small team doing incredible work!
+
+I also had some interesting things I wanted to try and building a blog felt like the perfect playground:
+
+- I've started using [Obsidian](https://obsidian.md) as my primary way to write down notes. I wanted to experiment with this for publishing blogs from anywhere.
+- I've tried Astro for some projects, but wanted to try it out since their 3.0 release. [Content Collections](https://docs.astro.build/en/guides/content-collections/) also seemed like a great way to manage content.
+
+## The Process
+
+- Export documents from hashnode
+- Setup Astro, (preferably use a starter)
+- Update theming, setup syntax highlighting (shiki) with support for theme switching
+- Setup Obsidian-Git Sync
+
+## Exporting Documents from Hashnode
+
+I originally expected exports to be markdown files, but to my surprise it was a json dump of all my articles. Fortunately, hashnode has a nifty Github Backup integration that backed up all my articles as markdown files. Neat!
+
+## Setting up Astro
+
+Since I wanted to move over things quickly and not spend a lot of time crafting the blog, a astro starter / theme was of essence. After searching a bit on [Astro's Theme Search](https://astro.build/themes/?search=&categories%5B%5D=blog), I found an opinionated starter that I liked - [Astro Theme Cactus by Chris Williams](https://github.com/chrismwilliams/astro-theme-cactus).
+
+### Features
+
+The feature list was exactly what I was looking for, and also supported **View Transitions** ✨
+
+- Astro v3.0
+- View Transitions from [Astro](https://docs.astro.build/en/guides/view-transitions/)
+- TailwindCSS with Dark / Light Mode support
+- Accessible, semantic HTML markup, responsive & SEO-friendly
+- [Astro Assets Integration](https://docs.astro.build/en/guides/assets/) for optimised images
+- MD & [MDX](https://docs.astro.build/en/guides/markdown-content/#mdx-only-features) posts
+- [Satori](https://github.com/vercel/satori) for creating open graph png images
+- Pagination
+- [Automatic RSS feed](https://docs.astro.build/en/guides/rss)
+- Shiki code syntax styling
+- Auto-generated [sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
+- [Pagefind](https://pagefind.app/) static search library integration
+- [Astro Icon](https://github.com/natemoo-re/astro-icon) svg icon component
+
+### Theming and Code Highlighting
+
+> update: instead of using shiki directly, i've started using https://expressive-code.com/ which is an abstraction over shiki and works phenomenally well. 
+
+Since my portfolio was also on tailwind, it was pretty straightforward to port styles. I just had to update a couple of `css-variables` and replace the fonts to use `Inter` (probably the best font ever, thanks [@rsms](https://twitter.com/rsms)). I still had to make some more stylistic changes to make the starter attuned to my liking (changing the appearance of tags, switching from a monospace font to sans-serif font for readability etc.,)
+
+But, I ran into some troubles with code highlighting. The default Astro + Shiki configuration didn't allow me to switch code themes.
+
+> Shiki generates themes at build time, client-side theme switching support is not built in.
+
+However, Shiki supports adding CSS Variables that allow to customize tokens in a theme individiually, and then changing those variables for light & dark theme.
+
+### Shikiji to the rescue
+
+> shikiji has been merged back to shiki. use `shiki` directly, or switch to `astro-expressive-code`.
+
+[Shikiji](https://github.com/antfu/shikiji), a pure ESM focused rewrite of Shiki has native support for dark-light mode theme switching. [Nate Moore](https://twitter.com/n_moore) who co-created astro suggested using this as an alternative to using CSS variables with Astro + Shiki in their discord community. Thanks Nate!
+
+```bash
+$ pnpm add rehype-shikiji
+```
+
+We need to disable the astro's in-built `shiki` syntax highlighting by setting it to `false`, and configure `rehype-shikiji` as a plugin in `astro.config.mjs`.
+
+```js
+export default defineConfig({
+	markdown: {
+		syntaxHighlight: false,
+		rehypePlugins: [
+			[
+				shikiji,
+				{
+					themes: {
+						light: "github-light",
+						dark: "github-dark",
+					},
+				},
+			],
+		],
+	})
+```
+
+Voila! We have beautiful syntax highlighting that switches between dark & light.
+
+## Publishing Blogs from Anywhere with Obsidian
+
+I wanted to be able to draft articles from anywhere, and possibly turn this site into some sort of a digital garden. Obsidian has been amazing, I loved the idea of it being "local-first" and tbh **Obsidian was a breathe of fresh air, in a sea of notetaking apps.** I've been using it for a couple of years and as someone who never used to take notes - Obsidian has helped build a habit.
+
+> Narrator: Can Obsidian help build a habit of writing blogs too, only time will tell.
+
+### Obsidian Git & Plugins
+
+[Obsidian-git](https://github.com/denolehov/obsidian-git) is a plugin that supercharges an Obsidian vault with features like: auto backup, sync, pull, push, fetch, clone and treat any git repository as a vault.
+
+For setting it up on the web, I followed this article [Fleeting Notes - Obsidian Git Setup](https://linked-blog-starter.vercel.app/connect-obsidian-vault-with-github). This was pretty straightforward to do, and I was able to set it up pretty quickly.
+
+On mobile, I had some hiccups but [Obsidian Git - Mobile Docs](https://publish.obsidian.md/git-doc/Getting+Started#Clone+via+plugin) was pretty descriptive. I wanted to have only the `content` directory of this site, in an obsidian vault but that seemed impossible, so I just resorted to using the entire site as an obsidian vault.
+
+As a workaround, I tried the [`File Hider`](https://github.com/Oliver-Akins/file-hider) plugin to hide the rest of the `src` folder. I wanted to write [`MDX`](https://mdxjs.com/) to use Astro components in my blogposts, so I also had to install [mdx-as-md](https://github.com/git-no/obsidian-markdown-file-suffix) which allows editing MDX files within Obsidian.
+
+#### Auto Deploying with Vercel
+
+Thanks to [vercel](https://vercel.com), anytime Obsidian-Git made a backup ie. stage, commit and push behind the scenes - the site gets auto-deployed with the latest changes. The fun part being - I don't even need access to my laptop for it.
+
+<Image src={obsidianGitiOSScreenshot} alt="Obsidian Git iOS Screenshot" width={500} />
+
+Also, another cool thing in this starter is that it allows me to work on draft posts by setting `draft` to `true` in the frontmatter, which are viewable only in `DEV` mode.
+
+```md
+---
+draft: true
+---
+```
+
+### Running Pagespeed Insights
+
+Ah, a perfect [100](https://pagespeed.web.dev/analysis/https-blog-shrirambalaji-com/gcnypx9m5r?form_factor=mobile) 🥳. Isn't that a sight!
+
+<Image
+	src={blogPageSpeedResult}
+	alt="Screenshot of blog.shrirambalaji.com PageSpeed Results"
+	width={800}
+	quality="max"
+/>
+
+I'm fully aware that Lighthouse scores don't always reflect perceived user experience based on [many](https://calibreapp.com/blog/downsides-of-performance-score)
+[writings](https://www.matuzo.at/blog/building-the-most-inaccessible-site-possible-with-a-perfect-lighthouse-score/)
+but hey - gotta be happy with the 100.
+
+You can view the source code for this blog on [GitHub](https://github.com/shrirambalaji/blog.shrirambalaji.com). It's open-source, so feel free to contribute to it, fork it (but do attribute it back).
+
+**Astro** and the ecosystem around it has enabled me to make this change in a couple of days. 
+
+Looking forward to write more here!
