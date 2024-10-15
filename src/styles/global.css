@@ -109,7 +109,7 @@
 	margin-top: 0.5em;
 }
 
-.callout-hint > svg {
+.callout-hint>svg {
 	margin-right: 0.5rem;
 	width: 1em;
 	display: flex;
@@ -122,7 +122,7 @@
 	margin-block-start: 0;
 }
 
-.callout-content > * {
+.callout-content>* {
 	margin-top: 10px !important;
 	margin-bottom: 10px !important;
 }
@@ -135,12 +135,15 @@
 .callout-commend {
 	--callout-accent: var(--callout-accent-tip);
 }
+
 .callout-warn {
 	--callout-accent: var(--callout-accent-warning);
 }
+
 .callout-deter {
 	--callout-accent: var(--callout-accent-caution);
 }
+
 .callout-assert {
 	--callout-accent: var(--callout-accent-important);
 }
@@ -313,4 +316,45 @@ details summary::before {
 
 details[open] summary::before {
 	content: var(--summary-marker-open);
+}
+
+
+/* markdown table rendering  */
+.markdown-table {
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 1rem;
+	font-size: 0.9rem;
+}
+
+.markdown-table th,
+.markdown-table td {
+	padding: 0.75rem;
+	text-align: left;
+	border: 1px solid #e2e8f0;
+}
+
+.markdown-table th {
+	background-color: #f8fafc;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.markdown-table tr:nth-child(even) {
+	background-color: #f1f5f9;
+}
+
+.markdown-table tr:hover {
+	background-color: #e2e8f0;
+}
+
+@media screen and (max-width: 600px) {
+	.markdown-table {
+		font-size: 0.8rem;
+	}
+
+	.markdown-table th,
+	.markdown-table td {
+		padding: 0.5rem;
+	}
 }
