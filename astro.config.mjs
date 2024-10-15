@@ -14,6 +14,8 @@ import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
 import remarkDirective from "remark-directive";
 import remarkCalloutDirectives from "@microflash/remark-callout-directives";
 import githubCalloutOptions from "@microflash/remark-callout-directives/config/github";
+import rehypeClassNames from 'rehype-class-names';
+
 
 const AnchorLinkIcon = h(
 	"svg",
@@ -92,6 +94,7 @@ export default defineConfig({
 					],
 				},
 			],
+			[rehypeClassNames, { 'table': 'markdown-table' }], // New plugin
 		],
 		remarkPlugins: [
 			remarkParse,
