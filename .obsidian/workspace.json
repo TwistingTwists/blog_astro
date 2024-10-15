@@ -172,8 +172,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5919a37ccee6cc78",
+  "active": "4dcc07bd75eca95a",
   "lastOpenFiles": [
+    "pnpm-lock.yaml.248528182",
+    "_tmp_162148_3163a094bd4dc57a83e0c595c1fab07f",
     "src/content/post/rust-executor/index.md",
     "src/content/post/resolving-rust-symbols/index.mdx",
     "src/content/post/getting-started-with-open-source.md",
@@ -186,7 +188,6 @@
     "node_modules/@fontsource-variable",
     "node_modules/@types",
     "node_modules/@tailwindcss",
-    "node_modules/@resvg",
     "src/content/post/what-is-smtp.md",
     "src/content/post/mutability-in-rust.md",
     "src/content/post/Untitled.md",

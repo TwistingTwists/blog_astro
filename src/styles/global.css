@@ -319,42 +319,36 @@ details[open] summary::before {
 }
 
 
+
 /* markdown table rendering  */
 .markdown-table {
-	border-collapse: collapse;
-	width: 100%;
-	margin-bottom: 1rem;
-	font-size: 0.9rem;
+	@apply w-full border-collapse text-sm mb-4;
 }
 
 .markdown-table th,
 .markdown-table td {
-	padding: 0.75rem;
-	text-align: left;
-	border: 1px solid #e2e8f0;
+	@apply border border-gray-200 dark:border-gray-700 p-3 text-left;
 }
 
 .markdown-table th {
-	background-color: #f8fafc;
-	font-weight: bold;
-	text-transform: uppercase;
+	@apply bg-gray-100 dark:bg-gray-800 font-bold uppercase;
 }
 
 .markdown-table tr:nth-child(even) {
-	background-color: #f1f5f9;
+	@apply bg-gray-50 dark:bg-gray-900;
 }
 
 .markdown-table tr:hover {
-	background-color: #e2e8f0;
+	@apply bg-gray-200 dark:bg-gray-700;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
 	.markdown-table {
-		font-size: 0.8rem;
+		@apply text-xs;
 	}
 
 	.markdown-table th,
 	.markdown-table td {
-		padding: 0.5rem;
+		@apply p-2;
 	}
 }
