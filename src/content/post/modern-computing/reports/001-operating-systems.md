@@ -15,8 +15,22 @@ Memory access values every programmer should know
 | Type                     | New                   | Implications                     | Similar tech?                                                                                                                      |
 | ------------------------ | --------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Application Architecture | Thread-per-core model | 1. Reduce Tail Latency by 71%[1] | Erlang runs the scheduler one per core? and by nature processes don't share the data => thread-per-core wayyyy before anyone else. |
-What is in? Long version
-- [A context switch (OS) between threads is more expensive than an I/O operation! ](https://lore.kernel.org/io-uring/4af91b50-4a9c-8a16-9470-a51430bd7733@kernel.dk/T/#u)
+|                          |                       |                                  |                                                                                                                                    |
+Recent improvements: 
+- [A context switch (OS) between threads is more expensive than an I/O operation! ](https://lore.kernel.org/io-uring/4af91b50-4a9c-8a16-9470-a51430bd7733@kernel.dk/T/#u),
+- Key Insight: application-level data partitioning can eliminate thread synchronization and applications can restrict themselves to using asynchronous OS interfaces
+- Result: [Reduce Tail Latency by 71%](https://helda.helsinki.fi/server/api/core/bitstreams/3142abaa-16e3-4ad0-beee-e62add589fc4/content)
+
+Thread-per-core
+- the thread-per-core application architecture, each thread is pinned to a CPU core which is dedicated for that thread.
+
+## Managing Resources
+
+| Type              | +                                                                    | -                                                                                                                                                                                                                                       |
+| ----------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SHARED NOTHING    | improves CPU cache efficiency and eliminates thread synchronization. | limit system throughput for **skewed workloads** because only one CPU core can operate on a specific part of the application data                                                                                                       |
+| SHARED EVERYTHING |                                                                      | - need to leverage **lockless** data structures and use **asynchronous wait-free** data structures to eliminate blocking behavior<br><br>- data bounces between CPU caches and that thread synchronization limits multicore scalability |
+| SHARED SOMETHING  |                                                                      |                                                                                                                                                                                                                                         |
 
 
 
@@ -27,7 +41,4 @@ Similar Tech
 
 Implementation 
 [glommio](https://www.datadoghq.com/blog/engineering/introducing-glommio) 
-
-References: 
-
-[1](https://helda.helsinki.fi/server/api/core/bitstreams/3142abaa-16e3-4ad0-beee-e62add589fc4/content)
+ 
