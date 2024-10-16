@@ -19,6 +19,7 @@ What is in? Long version
 - A context switch (OS) between threads is more expensive than an I/O operation! [2]
 
 
+
 Similar Tech 
 1. thread-per-core framework for C++ called [Seastar](http://seastar.io/), the engine that is behind the [ScyllaDB](https://www.scylladb.com/) NoSQL database.
 2. Erlang VM?
