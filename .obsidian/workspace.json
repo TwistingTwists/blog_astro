@@ -87,7 +87,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 337.5
+    "width": 337.5,
+    "collapsed": true
   },
   "right": {
     "id": "b9da8a232c7f6d6e",
@@ -160,7 +161,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -174,9 +176,9 @@
   },
   "active": "5919a37ccee6cc78",
   "lastOpenFiles": [
-    "src/content/post/modern-computing/a01-os/Untitled",
     "src/content/post/1brc-across-languages/index.md",
     "src/content/post/modern-computing/reports/001-operating-systems.md",
+    "src/content/post/modern-computing/a01-os/Untitled",
     "src/content/post/resolving-rust-symbols/index.mdx",
     "src/content/post/modern-computing/reports",
     "src/content/post/modern-computing",
@@ -188,7 +190,6 @@
     "node_modules/@fontsource",
     "node_modules/@motion-canvas",
     "node_modules/@microflash",
-    "node_modules/@astrojs",
     "src/content/post/what-is-smtp.md",
     "src/content/post/mutability-in-rust.md",
     "src/content/post/Untitled.md",
