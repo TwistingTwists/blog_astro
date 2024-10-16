@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/post/resolving-rust-symbols/index.mdx",
+                "file": "src/content/post/modern-computing/reports/001-operating-systems.md",
                 "mode": "source",
                 "source": false
               }
@@ -103,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "src/content/post/1brc-across-languages/index.md",
+                "file": "src/content/post/modern-computing/reports/001-operating-systems.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "src/content/post/1brc-across-languages/index.md",
+                "file": "src/content/post/modern-computing/reports/001-operating-systems.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -143,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "src/content/post/1brc-across-languages/index.md"
+                "file": "src/content/post/modern-computing/reports/001-operating-systems.md"
               }
             }
           },
@@ -172,22 +172,23 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4dcc07bd75eca95a",
+  "active": "5919a37ccee6cc78",
   "lastOpenFiles": [
+    "src/content/post/modern-computing/a01-os/Untitled",
+    "src/content/post/1brc-across-languages/index.md",
+    "src/content/post/modern-computing/reports/001-operating-systems.md",
+    "src/content/post/resolving-rust-symbols/index.mdx",
+    "src/content/post/modern-computing/reports",
+    "src/content/post/modern-computing",
     "pnpm-lock.yaml.248528182",
     "_tmp_162148_3163a094bd4dc57a83e0c595c1fab07f",
     "src/content/post/rust-executor/index.md",
-    "src/content/post/resolving-rust-symbols/index.mdx",
     "src/content/post/getting-started-with-open-source.md",
     "src/content/post/astro-nomical-switch-hashnode-to-astro.mdx",
-    "src/content/post/1brc-across-languages/index.md",
     "node_modules/@fontsource",
     "node_modules/@motion-canvas",
     "node_modules/@microflash",
     "node_modules/@astrojs",
-    "node_modules/@fontsource-variable",
-    "node_modules/@types",
-    "node_modules/@tailwindcss",
     "src/content/post/what-is-smtp.md",
     "src/content/post/mutability-in-rust.md",
     "src/content/post/Untitled.md",
