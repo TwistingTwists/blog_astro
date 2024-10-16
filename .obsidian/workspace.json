@@ -6,7 +6,7 @@
       {
         "id": "98400ef9b5a3e29b",
         "type": "tabs",
-        "dimension": 84.18604651162791,
+        "dimension": 58.22159491884263,
         "children": [
           {
             "id": "1e3f657c2a640917",
@@ -25,7 +25,7 @@
       {
         "id": "ba3334193b44af55",
         "type": "tabs",
-        "dimension": 15.813953488372093,
+        "dimension": 41.77840508115737,
         "children": [
           {
             "id": "13eacc27fcc36916",
@@ -177,7 +177,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "effb05fb51ed6791",
+  "active": "1e3f657c2a640917",
   "lastOpenFiles": [
     "src/content/post/modern-computing/reports/001-operating-systems.md",
     "src/content/post/1brc-across-languages/index.md",
