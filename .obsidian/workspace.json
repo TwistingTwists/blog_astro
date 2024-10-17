@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/post/distributed-systems/crdt/index.md",
+                "file": "src/content/post/rust-executor/index.md",
                 "mode": "source",
                 "source": false
               }
@@ -105,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "src/content/post/distributed-systems/crdt/index.md",
+                "file": "src/content/post/rust-executor/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "src/content/post/distributed-systems/crdt/index.md",
+                "file": "src/content/post/rust-executor/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "src/content/post/distributed-systems/crdt/index.md"
+                "file": "src/content/post/rust-executor/index.md"
               }
             }
           },
@@ -177,8 +177,8 @@
   },
   "active": "1e3f657c2a640917",
   "lastOpenFiles": [
-    "src/content/post/rust-executor/index.md",
     "src/content/post/distributed-systems/crdt/index.md",
+    "src/content/post/rust-executor/index.md",
     "src/content/post/distributed-systems/crdt",
     "src/content/post/distributed-systems",
     "src/content/post/modern-computing/reports/001-operating-systems.md",

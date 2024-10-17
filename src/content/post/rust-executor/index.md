@@ -108,6 +108,11 @@ Runnable + Task
 
 A task is essentially a stateful future that has been allocated on the heap. It encapsulates not just the future itself, but also additional state information that tracks whether the future is ready to be polled, waiting to be woken up, or has completed its execution.
 
+https://www.spaghetti-coder.com/building-async-io-in-rust-how-futures-wakers-and-thread-pools-work-together
+
+Dependency injection in rust 
+https://chesedo.me/blog/manual-dependency-injection-rust/#lifetime-management
+https://bosun.ai/posts/rust-for-genai-performance/
 ### Executors
 
 Executors are responsible for managing and running these tasks. At their core, executors maintain a queue of scheduled tasks. They decide when and how to poll futures, effectively driving the progress of asynchronous operations. Executors handle the complexity of task scheduling, ensuring efficient utilization of system resources.
