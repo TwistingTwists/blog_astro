@@ -40,5 +40,5 @@ Similar Tech
 
 
 Implementation 
-[glommio](https://www.datadoghq.com/blog/engineering/introducing-glommio) 
-dbeel 
+- [glommio](https://www.datadoghq.com/blog/engineering/introducing-glommio) 
+- [dbeel](https://github.com/tontinton/dbeel) : Thread-per-core document DB
