@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/post/rust-executor/index.md",
+                "file": "src/content/post/modern-computing/reports/001-operating-systems.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "001-operating-systems"
             }
           }
         ]
@@ -151,8 +151,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ],
@@ -169,15 +169,14 @@
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "obsidian-git:Open Git source control": false
+      "command-palette:Open command palette": false
     }
   },
   "active": "1e3f657c2a640917",
   "lastOpenFiles": [
-    "src/content/post/1brc-across-languages/index.md",
-    "src/content/post/rust-executor/index.md",
     "src/content/post/distributed-systems/crdt/index.md",
+    "src/content/post/rust-executor/index.md",
+    "src/content/post/1brc-across-languages/index.md",
     "src/content/post/distributed-systems/crdt",
     "src/content/post/distributed-systems",
     "src/content/post/modern-computing/reports/001-operating-systems.md",

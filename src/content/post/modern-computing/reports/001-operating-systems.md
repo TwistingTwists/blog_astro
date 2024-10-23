@@ -21,6 +21,8 @@ Recent improvements:
 - Key Insight: application-level data partitioning can eliminate thread synchronization and applications can restrict themselves to using asynchronous OS interfaces
 - Result: [Reduce Tail Latency by 71%](https://helda.helsinki.fi/server/api/core/bitstreams/3142abaa-16e3-4ad0-beee-e62add589fc4/content)
 
+> Case In point: Redis is single threaded.  [Why?](https://www.youtube.com/watch?v=h30k7YixrMo) 
+
 Thread-per-core
 - the thread-per-core application architecture, each thread is pinned to a CPU core which is dedicated for that thread.
 
@@ -39,4 +41,4 @@ Similar Tech
 
 Implementation 
 [glommio](https://www.datadoghq.com/blog/engineering/introducing-glommio) 
- 
+dbeel 
