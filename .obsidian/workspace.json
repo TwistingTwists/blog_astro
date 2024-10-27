@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/post/modern-computing/reports/001-operating-systems.md",
+                "file": "src/content/post/1brc-across-languages/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "001-operating-systems"
+              "title": "index"
             }
           }
         ]
@@ -52,11 +52,11 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "\\n\\n",
+                "query": "tag:crdt",
                 "matchingCase": false,
-                "explainSearch": true,
-                "collapseAll": true,
-                "extraContext": true,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
@@ -175,12 +175,14 @@
   },
   "active": "1e3f657c2a640917",
   "lastOpenFiles": [
+    "src/content/post/distributed-systems/stream-processing/index.md",
     "src/content/post/distributed-systems/crdt/index.md",
+    "src/content/post/modern-computing/reports/001-operating-systems.md",
+    "src/content/post/distributed-systems/stream-processing",
     "src/content/post/rust-executor/index.md",
     "src/content/post/1brc-across-languages/index.md",
     "src/content/post/distributed-systems/crdt",
     "src/content/post/distributed-systems",
-    "src/content/post/modern-computing/reports/001-operating-systems.md",
     "src/content/post/modern-computing/a01-os/Untitled",
     "src/content/post/resolving-rust-symbols/index.mdx",
     "src/content/post/modern-computing/reports",
@@ -189,7 +191,6 @@
     "_tmp_162148_3163a094bd4dc57a83e0c595c1fab07f",
     "src/content/post/getting-started-with-open-source.md",
     "src/content/post/astro-nomical-switch-hashnode-to-astro.mdx",
-    "node_modules/@fontsource",
     "src/content/post/what-is-smtp.md",
     "src/content/post/mutability-in-rust.md",
     "src/content/post/Untitled.md",
