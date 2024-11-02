@@ -7,6 +7,10 @@ tags:
 publishDate: Oct 14 2024
 ---
 
+This is a cheatsheet  of optimisations done for 1brc challenges. It tries to summarise and put the optimisations in perspective. 
+
+We hope that you know what 1brc is. Learn that from [1](https://github.com/gunnarmorling/1brc), [2](https://www.morling.dev/blog/1brc-results-are-in/). 
+
 ### Data encoding - To and Fro from String  
 
 | Trick                                                                                  | Outcome                                                                                     | Note                                                                                                  |
