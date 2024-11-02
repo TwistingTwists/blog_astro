@@ -24,8 +24,8 @@ dependencies:
     specifier: ^7.8.1
     version: 7.8.1(astro@4.15.3)
   '@fontsource-variable/inter':
-    specifier: ^5.0.20
-    version: 5.0.20
+    specifier: ^5.1.0
+    version: 5.1.0
   '@fontsource-variable/jetbrains-mono':
     specifier: ^5.1.1
     version: 5.1.1
@@ -961,8 +961,8 @@ packages:
       '@expressive-code/core': 0.35.6
     dev: false
 
-  /@fontsource-variable/inter@5.0.20:
-    resolution: {integrity: sha512-dhzG4Zls/tIrf8h0FhTNi8jT/uFwNhdTY2vKe6DYqoXDYOfEcTVZDyh1hKml1rlLT44Y7OoKoGz8w7czDW7twQ==}
+  /@fontsource-variable/inter@5.1.0:
+    resolution: {integrity: sha512-Wj2dUGP0vUpxRGQTXQTCNJO+aLcFcQm+gUPXfj/aS877bQkEPBPv9JvZJpwdm2vzelt8NTZ+ausKlBCJjh2XIg==}
     dev: false
 
   /@fontsource-variable/jetbrains-mono@5.1.1:
