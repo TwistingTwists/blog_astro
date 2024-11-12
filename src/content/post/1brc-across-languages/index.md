@@ -9,18 +9,17 @@ publishDate: Oct 14 2024
 
 This is a cheatsheet  of optimisations done for 1brc challenges. It tries to summarise and put the optimisations in perspective. 
 
-We hope that you know what 1brc is. Learn that from [1](https://github.com/gunnarmorling/1brc), [2](https://www.morling.dev/blog/1brc-results-are-in/). 
+We hope that you know what 1brc is. If not, read [1](https://github.com/gunnarmorling/1brc), [2](https://www.morling.dev/blog/1brc-results-are-in/). 
 
 ### Data encoding - To and Fro from String  
 
-| Trick                                                                                  | Outcome                                                                                     | Note                                                                                                  |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| just process as raw bytes.                                                             | [~10% perf](https://github.com/gunnarmorling/1brc/discussions/57#discussioncomment-8153186) | <br /> Don't create String.                                                                           |
-| parsing cities and float values<br>                                                    |                                                                                             | parsing after assuming only one place after decimal.                                                  |
-| <br>[Branchless Programming via Bit Manipulation](https://youtu.be/EFXxXFHpS0M?t=1255) |                                                                                             |                                                                                                       |
-| SWAR = SIMD as a register                                                              |                                                                                             | the data looks like `Tokio;13.4` and we want to find `;`<br><br>using 8 operations, you can find `;`. |
+| Trick                                                                                  | Outcome                                                                                     | Note                                                                                                     |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| just process raw bytes from the file. Don't convert to `String`                        | [~10% perf](https://github.com/gunnarmorling/1brc/discussions/57#discussioncomment-8153186) |                                                                                                          |
+| parsing cities and float values<br>                                                    |                                                                                             | parsing after assuming only one place after decimal.                                                     |
+| <br>[Branchless Programming via Bit Manipulation](https://youtu.be/EFXxXFHpS0M?t=1255) |                                                                                             |                                                                                                          |
+| SWAR = SIMD as a register                                                              |                                                                                             | If the data looks like `Tokio;13.4` and we want to find `;`<br><br>using 8 operations, you can find `;`. |
 
-  
 
 ### Reading files from disk
 
