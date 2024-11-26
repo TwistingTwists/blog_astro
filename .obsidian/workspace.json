@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "src/content/post/1brc-across-languages/index.md",
+                "file": "src/content/post/async-rust/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -175,7 +175,10 @@
   },
   "active": "1e3f657c2a640917",
   "lastOpenFiles": [
+    "src/content/post/oss/rust/learnings-from-my-first-contribution-to-the-rust-project.mdx",
     "src/content/post/streams-101/index.md",
+    "src/content/post/async-rust/index.md",
+    "src/content/post/async-rust",
     "src/content/post/1brc-across-languages/index.md",
     "src/content/post/streams-101",
     "src/content/post/distributed-systems/stream-processing/index.md",
@@ -190,7 +193,6 @@
     "src/content/post/modern-computing/reports",
     "src/content/post/modern-computing",
     "pnpm-lock.yaml.248528182",
-    "_tmp_162148_3163a094bd4dc57a83e0c595c1fab07f",
     "src/content/post/getting-started-with-open-source.md",
     "src/content/post/what-is-smtp.md",
     "src/content/post/mutability-in-rust.md",
@@ -218,8 +220,6 @@
     "src/content/templates/Untitled.md",
     "src/content/post/hello-new-blog/index.mdx.md",
     "src/content/post/hello-new-blog.mdx.md",
-    "src/content/post/hello-new-blog/hello-new-blog.mdx.md",
-    "src/content/post/hello-new-blog.md",
-    "src/content/templates/blogpost.md.md"
+    "src/content/post/hello-new-blog/hello-new-blog.mdx.md"
   ]
 }
