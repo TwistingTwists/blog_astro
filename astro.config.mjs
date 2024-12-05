@@ -35,7 +35,7 @@ const AnchorLinkIcon = h(
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://blog.shrirambalaji.com",
+	site: "https://twistingtwists.github.io/blog_astro",
 	markdown: {
 		syntaxHighlight: "shiki",
 		rehypePlugins: [
@@ -109,9 +109,9 @@ export default defineConfig({
 			},
 		},
 	},
-	image: {
-		domains: ["og.shrirambalaji.com"],
-	},
+	// image: {
+	// 	domains: ["og.shrirambalaji.com"],
+	// },
 	integrations: [
 		expressiveCode({
 			themes: ["github-dark", "min-light"],
