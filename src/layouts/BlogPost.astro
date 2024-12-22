@@ -7,6 +7,11 @@ import TOC from "@/components/blog/TOC";
 
 interface Props {
 	post: CollectionEntry<"post">;
+	headings: {
+		slug: string;
+		text: string;
+		depth: number;
+	}[];
 }
 
 const { post } = Astro.props;
@@ -20,7 +25,9 @@ const { headings } = await post.render();
 ---
 
 <script>
-	const scrollBtn = document.getElementById("to-top-btn") as HTMLButtonElement;
+	const scrollBtn = document.getElementById(
+		"to-top-btn",
+	) as HTMLButtonElement;
 	const targetHeader = document.getElementById("blog-hero") as HTMLDivElement;
 
 	function callback(entries: IntersectionObserverEntry[]) {
@@ -40,11 +47,11 @@ const { headings } = await post.render();
 
 <BaseLayout meta={{ title, description, articleDate, ogImage: socialImage }}>
 	<div class="gap-x-10 lg:flex lg:items-start">
-		{!!headings.length && <TOC headings={headings} />}
+		{headings && headings.length > 0 && <TOC headings={headings} />}
 		<article class="flex-grow break-words" data-pagefind-body>
 			<div id="blog-hero"><BlogHero content={post} /></div>
 			<div
-				class="prose prose-lg  prose-blockquote:border-l-4 prose-blockquote:not-italic prose-astro mt-12 prose-headings:font-semibold prose-headings:text-accent-2 prose-th:before:content-none"
+				class="prose prose-lg prose-blockquote:border-l-4 prose-blockquote:not-italic prose-astro mt-12 prose-headings:font-semibold prose-headings:text-accent-2 prose-th:before:content-none"
 			>
 				<slot />
 			</div>
@@ -65,7 +72,10 @@ const { headings } = await post.render();
 			stroke="currentColor"
 			class="h-6 w-6"
 		>
-			<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"></path>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M4.5 15.75l7.5-7.5 7.5 7.5"></path>
 		</svg>
 	</button>
 </BaseLayout>

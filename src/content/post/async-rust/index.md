@@ -6,10 +6,11 @@ tags: []
 draft: true
 ---
 
-- 
 
+## Problems with Async Rust
 
-Problems with async rust - 
+### Send Bound Problem Rust
+
 - Stream / chain / composing / PRIMITIVES 
 - Send Bound problem 
 - async Drop 

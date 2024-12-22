@@ -47,3 +47,35 @@ export function generateToc(headings: ReadonlyArray<MarkdownHeading>) {
 	});
 	return toc;
 }
+
+// export function generateToc(headings: ReadonlyArray<MarkdownHeading>) {
+// 	if (!headings.length) return [];
+
+// 	// this ignores/filters out h1 element(s) and draft pages
+// 	const bodyHeadings = [...headings.filter(({ depth, draft }) => depth > 1 && !draft)];
+// 	const toc: Array<TocItem> = [];
+
+// 	bodyHeadings.forEach((h) => {
+// 		const heading: TocItem = { ...h, subheadings: [] };
+
+// 		// add h2 elements into the top level
+// 		if (heading.depth === 2) {
+// 			toc.push(heading);
+// 		} else {
+// 			const lastItemInToc = toc[toc.length - 1];
+// 			if (!lastItemInToc) {
+// 				return;
+// 			}
+// 			if (heading.depth < lastItemInToc?.depth) {
+// 				throw new Error(`Orphan heading found: ${heading.text}.`);
+// 			}
+
+// 			// higher depth
+// 			// push into children, or children's children
+// 			const gap = heading.depth - lastItemInToc?.depth;
+// 			const target = diveChildren(lastItemInToc, gap);
+// 			target.push(heading);
+// 		}
+// 	});
+// 	return toc;
+// }
