@@ -2,14 +2,15 @@
 title: Async Rust
 description: Reading About Async Rust from All sources
 publishDate: Dec 01, 2024
-tags: 
+tags: []
 draft: true
 ---
 
-- 
 
+## Problems with Async Rust
 
-Problems with async rust - 
+### Send Bound Problem Rust
+
 - Stream / chain / composing / PRIMITIVES 
 - Send Bound problem 
 - async Drop 

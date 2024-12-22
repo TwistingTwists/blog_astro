@@ -2,7 +2,7 @@
 title: Rust get's erlang genserver semantics
 description: Implement Task in Rust Using Ractor
 publishDate: Dec 13, 2024
-tags: 
+tags: []
 draft: true
 ---
 Task in erlang - semantics 
