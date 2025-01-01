@@ -36,8 +36,8 @@ dependencies:
     specifier: ^4.3.1
     version: 4.3.1
   '@motion-canvas/player':
-    specifier: ^3.17.0
-    version: 3.17.0
+    specifier: ^3.17.2
+    version: 3.17.2
   astro:
     specifier: ^4.15.3
     version: 4.15.3(typescript@5.5.4)
@@ -1297,8 +1297,8 @@ packages:
       - supports-color
     dev: false
 
-  /@motion-canvas/player@3.17.0:
-    resolution: {integrity: sha512-2KmWiwAr7fXLSdDYS84XeMeNdR0iLfzwCXtCvwc94fpt3ny1EIwYSmTCvG2RhZ0iSqjrAwSxRia1godPcusAmQ==}
+  /@motion-canvas/player@3.17.2:
+    resolution: {integrity: sha512-fmiYSXoERbNoZXuXpFD/89nuQVcHIB1Z46USTKWqBItC2Lo43d+E9KyqYoXFnnVXDMuROomOASo99jUh+2eUZA==}
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
